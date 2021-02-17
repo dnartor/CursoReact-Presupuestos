@@ -15,9 +15,11 @@ function App() {
   useEffect(() => {
     if (crearGasto) {
       guardarGastos([...gastos, gasto]);
+      const presupuestoRestante = restante - gasto.cantidad;
+      guardarRestante(presupuestoRestante);
       guardarcrearGasto(false);
     }
-  }, [gasto, gastos]);
+  }, [crearGasto, gasto, gastos, restante]);
 
   return (
     <div className="container">
